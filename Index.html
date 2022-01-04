@@ -30,7 +30,7 @@
         <div class="home-text">
             <h1><span>Make </span>You Comfort<br>Is Our <span>Happiness</span></h1>
             <p> The objective is to create an uncluttered look, <br>free from chaotic lines and color schemes.</p>
-            <a href="Product%20Card.html" class="btn">Shop Now</a>
+            <a href="Product%20Card.html" class="btn"  onmouseover="this.style.backgroundColor='red';" onmouseout="this.style.backgroundColor='';">Shop Now</a>
         </div>
     </section>
     <!---Shop--->
@@ -213,7 +213,7 @@
         <h2>Write Something</h2>
         <div class="news-box">
             <input type="text" placeholder="Enter your Email">
-            <a href="cnt.html" class="btn">Contact Now</a>
+            <a href="cnt.html" class="btn"  onmouseover="this.style.backgroundColor='red';" onmouseout="this.style.backgroundColor='';">Contact Now</a>
         </div>
     </section>
     <section>
@@ -255,11 +255,6 @@
     <script>
         function myFunction() {
         const myWin = window.open("Login.html", "", "width=500, height=500");
-        let x = myWin.screenX;
-        let y = myWin.screenY;
-        document.getElementById("demo").innerHTML =
-        "myWin.screenX= " + x + "<br>myWin.screenY= " + y;
-        }
     </script>
 
 </body>
