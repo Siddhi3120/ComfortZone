@@ -1,0 +1,133 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>About us</title>
+   <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="sstylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="demo.css">
+  </head>
+   <body onload="load()">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><h1>comfortZone</h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="aboutmain.html">About</a>
+        </li>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="cnt.html">Contacts</a>
+        </li>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="Login.html">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+   <div class="text">
+    <section id="grid">
+          <article class="card">
+            <div class="about">
+          <h1>About <br>Comfort Zone</h1><br>
+          <p>This is a well defined Furniture Shop with all facilities available .<br> We are blessed to provide you with all types of furniture materials which will decorate your house like a palace in affordable prices<br>Must visit our Shop...</p>
+        </div>
+          </article>
+          <article class="card">
+              <div class="about">
+                <h2>WHAT WE DO</h2>
+                <h3><i class="fa fa-comments"></i>&ensp;TAKING REQUIREMENTS</h3>
+                <p>You can message us for enquiry of any product which <br>you found special.It will be provided in less time and affordable rate</p>
+                <h3><i class="fa fa-gift"></i>&ensp;BEST QUALITY MATERIALS</h3>
+                <p>You will get best quality products with warrenty of minimum 2 years* <br>You must experience We will be ready with best one </p>
+                <h3><i class="fa fa-cart-arrow-down"></i>&ensp;SHIFT ORDERS TO DESTINY
+                </h3>
+                <p>Before the expected date of delivery,product will be shifted<br> to your destiny.All payment methods are available.</p>     
+              </div>
+          </article>
+    </section>
+    </div>
+
+    <div class="container">
+        <div class="contact-items">
+            <div class="customer-care">
+                <h3>Our Avergae <br>Visitors</h3>
+                <p id='0101' class="fs-2 text-dark">0</p>
+                <button id="cust-care"> Address details</button>
+            </div>
+            <div class="customer-care">
+                <h3>Branches <br>in India</h3>
+                <p id='0102' class="fs-2 text-dark">876</p>
+                <button id="cust-care"> View All</button>
+            </div>
+            <div class="customer-care">
+                <h3>Products Purchased</h3>
+                 <p id='0104' class="fs-2 text-dark">876</p>
+               <a href="./contact-form.html"> <button id="cust-care">View Items</button></a>
+            </div>
+            <div class="customer-care">
+                <h3> Average ComplainRate</h3>
+                <p class="fs-2 text-dark"><span id='0103'>12</span>%</p>
+                <button id="cust-care">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <h3>Follow Us</h3>
+        <div class="social-link">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i></p>
+    </section>
+   </body>
+   <script type="text/javascript">
+      function animate(obj, initVal, lastVal, duration) {
+
+    let startTime = null;
+    let currentTime = Date.now();
+    const step = (currentTime ) => {
+        if (!startTime) {
+              startTime = currentTime ;
+        }
+        const progress = Math.min((currentTime  - startTime) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+        if (progress < 1) {
+              window.requestAnimationFrame(step);
+        }
+        else{
+              window.cancelAnimationFrame(window.requestAnimationFrame(step));
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+      let text1 = document.getElementById('0101');
+      let text2 = document.getElementById('0102');
+      let text3 = document.getElementById('0103');
+      let text4 = document.getElementById('0104');
+
+      const load = () => {
+          animate(text1, 0, 907, 5000);
+          animate(text2, 0, 432, 5000);
+          animate(text4, 0, 550, 5000);
+          animate(text3, 100, 12, 5000);
+      }
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
