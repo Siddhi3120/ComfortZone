@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <form action="action_page.php" name="myForm"
+  onsubmit="return validateForm()" method="post">
+    <div class="container">
+      <h1>Login </h1>
+      <div class="formdesign" id="name">
+        <label for="uname"><b>Username:</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required><b><span class="formerror"></span></b>
+      </div>
+
+      <div class="formdesign" id="password">
+        <label for="psw"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required><b><span class="formerror"></span></b>
+      </div>
+
+      <button type="submit">Login</button>
+      <span class="psw">Don't have Account? <a href="signup.html">signup</a></span>
+    </div>
+ </form>
+</body>
+
+<script>
+  function clearErrors(){
+    errors=document.getElementsByClassName('formerror');
+    for(let item of errors)
+    {
+        item.innerHTML="";
+    }
+  }
+  function seterror(id,error)
+  {
+    element=document.getElementById(id);
+    element.getElementsByClassName('formerror')[0].innerHTML=error;
+    alert(error);
+  }
+
+  function validateForm()
+  {
+    var returnval=true;
+    clearErrors();
+    var name=document.forms['myForm']["uname"].value;
+    if(name.length<5)
+    {
+      seterror("name","Length of name is too short");
+      returnval=false;
+    }
+
+    var pasd=document.forms['myForm']["psw"].value;
+    if(pasd.length>8)
+    {
+      seterror("password","Length of password should be 8 characters");
+      returnval=false;
+    }
+    if(!(pasd.match(/[a-z]/g) && pasd.match(/[A-Z]/g) && pasd.match(/[0-9]/g) && pasd.match(/[^a-zA-Z\d]/g)))
+    {
+      seterror("password","Password should contain 1 uppercase,1 lowercase,1 digit, 1 special character");
+      returnval=false;
+    }
+    
+    
+    return returnval;
+  }
+</script>
+</html>
