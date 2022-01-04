@@ -1,0 +1,99 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <form action="action_page.php" name="myForm" 
+  onsubmit="return validateForm()" method="post">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <div class="formdesign" id="ftext">
+        <label for="email"><b>UserName</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required><b><span class="formerror"></span></b>
+      </div>
+
+      <div class="formdesign" id="femail">
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required><b><span class="formerror"></span></b>
+      </div>
+
+      <div class="formdesign" id="fpass">
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required><b><span class="formerror"></span></b>
+      </div>
+
+      <div class="formdesign" id="fcpass">
+        <label for="psw-repeat"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="psw-repeat" required><b><span
+            class="formerror"></span></b>
+      </div>
+
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </form>
+</body>
+<script>
+
+  function clearErrors() {
+    errors = document.getElementsByClassName('formerror');
+    for (let item of errors) {
+      item.innerHTML = "";
+    }
+  }
+  function seterror(id, error) {
+    element = document.getElementById(id);
+    element.getElementsByClassName('formerror')[0].innerHTML = error;
+  }
+
+  function validateForm() {
+    var returnval = true;
+    clearErrors();
+    var email1 = document.forms['myForm']["email"].value;
+    if (email1.length < 5) {
+      seterror("femail", "Length of name is too short");
+      returnval = false;
+    }
+    if (!(email1.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g))) {
+      seterror("femail", "Enter a valid email.");
+      returnval = false;
+    }
+
+    var pasd = document.forms['myForm']["psw"].value;
+    var pasd2= document.forms['myForm']["psw-repeat"].value;
+    if (pasd.length > 8) {
+      seterror("fpass", "Length of password should be 8 characters");
+      returnval = false;
+    }
+    if (!(pasd.match(/[a-z]/g) && pasd.match(/[A-Z]/g) && pasd.match(/[0-9]/g) && pasd.match(/[^a-zA-Z\d]/g))) {
+      seterror("fpass", "Password should contain 1 uppercase,1 lowercase,1 digit, 1 special character");
+      returnval = false;
+    }
+
+    if (pasd2.length > 8) {
+      seterror("fcpass", "Length of password should be 8 characters");
+      returnval = false;
+    }
+    if (!(pasd2.match(/[a-z]/g) && pasd.match(/[A-Z]/g) && pasd.match(/[0-9]/g) && pasd.match(/[^a-zA-Z\d]/g))) {
+      seterror("fcpass", "Password should contain 1 uppercase,1 lowercase,1 digit, 1 special character");
+      returnval = false;
+    }
+    if(!(pasd==pasd2))
+    {
+      seterror("fcpass","Password doesn't match!");
+      returnval= false;
+    }
+
+    return returnval;
+  }
+</script>
+
+</html>
